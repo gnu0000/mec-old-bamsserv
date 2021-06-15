@@ -1,0 +1,52 @@
+DEBUG = TRUE
+!IF "$(DEBUG)" == "TRUE"
+ODIR = MSCDOBJ
+COPT = /c /W3 /AL /Od /Zip /Fo$(ODIR)\$(@B).obj /nologo
+LOPT = /CO/NOLOGO/NOD/NOE
+LIBS = os2 llibcep GnuLibD
+BIND = rem
+GRES = rem
+MAP  = nul
+!ELSE
+ODIR = MSCOOBJ
+COPT = /c /W3 /AL /Ox /Grs /Zp /Fo$(ODIR)\$(@B).obj /nologo
+LOPT = /E/F/PACKC/NOLOGO/NOD/NOE
+LIBS = os2 llibcep GnuLibO
+BIND = bind $*.exe
+GRES = GnuRes
+MAP  = nul
+!ENDIF
+
+PROG = Install
+
+all: $(PROG).exe
+
+
+
+
+
+$(ODIR)\Install.obj : Install.c var.h readebl.h eblib.h Bamsserv.h 
+   cl $(COPT) $(@B).c
+
+$(ODIR)\eblib.obj : eblib.c ReadEBL.h EbLib.h 
+   cl $(COPT) $(@B).c
+
+$(ODIR)\readebl.obj : readebl.c ReadEBL.h eblib.h 
+   cl $(COPT) $(@B).c
+
+$(ODIR)\var.obj : var.c Var.h Bamsserv.h Util.h 
+   cl $(COPT) $(@B).c
+
+$(ODIR)\InstDat.obj : InstDat.txt 
+   Data2Obj /Verbose $(@B).txt $(ODIR)\$(@B)
+
+$(PROG).exe : $(ODIR)\Install.obj $(ODIR)\eblib.obj $(ODIR)\readebl.obj $(ODIR)\var.obj  $(ODIR)\InstDat.obj  $(PROG).def
+  link @<<$(PROG).lnk
+  $(ODIR)\Install $(ODIR)\eblib $(ODIR)\readebl +
+$(ODIR)\var  +
+  $(ODIR)\InstDat  +
+  $(LOPT), $(PROG), $(MAP), $(LIBS), $(PROG).def
+<<nokeep
+  $(GRES) -a -c $(PROG).EXE bamsserv.cfs
+  $(GRES) -a -c $(PROG).EXE JobExec.cfs
+

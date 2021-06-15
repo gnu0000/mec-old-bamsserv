@@ -1,0 +1,234 @@
+
+******************************************************************************
+*                                                                            *
+*                                 STATISTICS                                 *
+*                                                                            *
+******************************************************************************
+       Space on Drive C: 69246976
+       Space on Drive D: 145395712
+       Space on Drive I: 447773696
+      Server Start Time: 08/03/95 11:54 am
+           Current Time: 08/07/95 09:20 am
+      Average Wait Time: 00h 00m 00s
+   Average Running Time: 02h 11m 41s
+      Total Jobs Queued: 7
+     Total Jobs Started: 7
+   Total Jobs Completed: 7
+     Total Jobs Printed: 4
+      Max Jobs in Queue: 0
+         Jobs Restarted: 0
+     Total Jobs Refused: 0
+Total Security Failures: 0
+    PING       Commands: 23
+    SUBMIT     Commands: 7
+    LISTJOBS   Commands: 40
+    LISTFILES  Commands: 20
+    PRINT      Commands: 0
+    COPY       Commands: 13
+    DELETEJOB  Commands: 4
+    DELETEFILE Commands: 0
+    ACCEPT     Commands: 0
+    PURGE      Commands: 0
+    SETDEFAULT Commands: 0
+    GETINFO    Commands: 5
+    TEST       Commands: 0
+    TEST2      Commands: 0
+
+******************************************************************************
+*                                                                            *
+*                                 VARIABLES                                  *
+*                                                                            *
+******************************************************************************
+MaxProcesses=6
+MaxQueueSize=200
+WellKnownPort=2000
+Debug=FALSE
+LogFile=c:\bams\BamsServ.log
+Restart=TRUE
+SystemFilesDir=Sys
+OutputFilesDir=
+ExecCmd=cmd.exe /c @Job CLNTENV=@ParmFile SYSENV=@CfgFile >@StdOut 2>@StdErr
+PrintCmd=LPR -b -n -r3 -q10 -p@Printer -s@PrintServer @File
+LogFileLevel=10
+LogWindowLevel=10
+PrintWait=TRUE
+PriorityBumpTime=3600
+ServerPerformance=100
+NotifyClient=TRUE
+JobTimeout=0
+PrintFileHeaders=FALSE
+FixFormFeeds=TRUE
+DefaultJob=JobExec.cmd
+JobDir=c:\bams\jobs
+FilesDir=c:\bams\files
+TempDir=C:\TMP
+ClientInstallFiles=c:\bams\cinstall
+DefaultPrinter=robbins_gioia_lj
+DefaultPrintServer=136.181.1.5
+ScreenLines=50,12,12
+BannerFile=Banner.txt
+ServicePClass=4
+ServicePDelta=0
+PClass=2
+PDelta=0
+AutoPurge=72
+Laserjet_LAND_Codes=~E~&l1o58f6C~=~(10U~(s0p16.67h8.5v0s0b0T
+Laserjet_P2_Codes=~E~&l0o72F~=~(10U~(s0p16.67h8.5v0s0b0T
+Laserjet_PORT_Codes=~E
+Laserjet_Reset=~E
+Default_LAND_Codes=@Laserjet_LAND_Codes
+Default_PORT_Codes=@Laserjet_PORT_Codes
+Default_P2_Codes=@Laserjet_P2_Codes
+Default_Reset=@Laserjet_Reset
+Default_TimeOut=3600
+LASDLET_TimeOut=9000
+PESDLET_TimeOut=7200
+LASGFDE_TimeOut=7200
+GCONDIR_TimeOut=18000
+LCONDIR_TimeOut=18000
+LVILTR_TimeOut=18000
+LINSUPDT_TimeOut=18000
+LQSSP_TimeOut=18000
+KeepSpoolFile=FALSE
+=xFormFeeds =TRUE
+
+******************************************************************************
+*                                                                            *
+*                                QUEUED JOBS                                 *
+*                                                                            *
+******************************************************************************
+******************************************************************************
+*                                                                            *
+*                                RUNNING JOBS                                *
+*                                                                            *
+******************************************************************************
+******************************************************************************
+*                                                                            *
+*                                  COMMANDS                                  *
+*                                                                            *
+******************************************************************************
+08/04/95 03:14 pm DBA: LIST JOBS
+08/04/95 03:15 pm DBA: LIST JOBS
+08/04/95 03:21 pm DBA: LIST JOBS
+08/04/95 03:36 pm : PING from 162.108.15.112
+08/04/95 03:41 pm DBA: LIST JOBS
+08/04/95 04:14 pm BS: GET INFO 7
+08/04/95 04:31 pm DBA: LIST JOBS
+08/05/95 08:06 am : PING from 162.108.33.96
+08/05/95 08:13 am DBA: LIST JOBS
+08/05/95 08:20 am DBA: LIST FILES
+08/05/95 08:20 am DBA: COPY 00000190 - OUTPUT.TXT
+08/05/95 08:31 am DBA: LIST FILES
+08/05/95 08:31 am DBA: COPY 00000191 - OUTPUT.TXT
+08/05/95 08:34 am DBA: LIST FILES
+08/05/95 08:34 am DBA: COPY 00000190 - OUTPUT.TXT
+08/05/95 08:36 am DBA: LIST FILES
+08/05/95 08:36 am DBA: COPY 00000191 - OUTPUT.TXT
+08/05/95 08:53 am DBA: LIST JOBS
+08/05/95 09:29 am DBA: SUBMIT 00000192 - LVILTRA
+08/05/95 09:29 am DBA: LIST JOBS
+08/05/95 09:32 am DBA: LIST FILES
+08/05/95 09:38 am DBA: LIST JOBS
+08/05/95 09:38 am DBA: LIST JOBS
+08/05/95 09:38 am DBA: DELETE JOB 00000192
+08/05/95 09:38 am DBA: LIST JOBS
+08/05/95 09:42 am DBA: LIST JOBS
+08/05/95 09:43 am DBA: SUBMIT 00000193 - LVILTRC
+08/05/95 09:44 am DBA: LIST JOBS
+08/05/95 09:54 am DBA: LIST FILES
+08/05/95 09:54 am DBA: LIST FILES
+08/05/95 10:00 am DBA: SUBMIT 00000194 - UTLLISPE
+08/05/95 10:03 am DBA: LIST JOBS
+08/05/95 10:38 am DBA: LIST FILES
+08/05/95 10:38 am DBA: COPY 00000191 - sys\SYSPRINT.TXT
+08/05/95 11:09 am DBA: COPY 00000191 - sys\DBSVCLOG.TXT
+08/05/95 11:29 am : PING from 162.108.33.96
+08/05/95 11:29 am DBA: LIST JOBS
+08/05/95 11:31 am DBA: LIST FILES
+08/05/95 11:31 am DBA: COPY 00000193 - OUTPUT.TXT
+08/05/95 11:42 am : PING from 162.108.33.96
+08/07/95 07:18 am : PING from 162.108.33.209
+08/07/95 07:40 am : PING from 162.108.33.96
+08/07/95 07:43 am DBA: LIST JOBS
+08/07/95 08:01 am DBA: LIST FILES
+08/07/95 08:01 am DBA: COPY 00000193 - OUTPUT.TXT
+08/07/95 08:23 am : PING from 162.108.33.96
+08/07/95 08:32 am DBA: LIST JOBS
+08/07/95 08:33 am DBA: LIST FILES
+08/07/95 08:34 am DBA: COPY 00000193 - sys\DBSVCPRM.DAT
+08/07/95 08:35 am : PING from 162.108.33.96
+08/07/95 08:42 am DBA: LIST JOBS
+08/07/95 08:42 am DBA: LIST FILES
+08/07/95 08:42 am DBA: COPY 00000190 - OUTPUT.TXT
+08/07/95 08:46 am : PING from 136.181.157.33
+08/07/95 09:03 am DBA: LIST JOBS
+08/07/95 09:04 am DBA: LIST FILES
+08/07/95 09:04 am DBA: COPY 00000193 - sys\JOBPARM.DAT
+08/07/95 09:08 am DBA: LIST JOBS
+08/07/95 09:08 am DBA: LIST FILES
+08/07/95 09:09 am DBA: COPY 00000193 - OUTPUT.TXT
+******************************************************************************
+*                                                                            *
+*                                MESSAGE LOG                                 *
+*                                                                            *
+******************************************************************************
+SOK: About To Get Buffer
+SOK: Recv Buffer return is 128
+SOK: About To Send Buffer of length 11
+SOK: Send Buffer return length is 11
+DBA: LIST FILES
+Thread 5 going ...
+initiating a connection ...
+Thread 1 going ...
+Waiting for a connection ...
+Thread m going ...
+Negotiating security ...
+SOK: About To Send Buffer of length 25
+SOK: Send Buffer return length is 25
+SOK: About To Get Buffer
+SOK: Recv Buffer return is 49
+SOK: About To Send Buffer of length 2
+SOK: Send Buffer return length is 2
+
+------------ COMMAND STRUCTURE  [08/07/95 09:09 am] ------------
+uCommand    = 6         pszUserID  = DBA
+uPriority   = 0         pszClientID= 162.108.33.96
+lMessagePort= 2000      pszServerID= 162.108.33.3
+                        pszJobID   = 00000193
+lUser1      = 0         pszUser1   = OUTPUT.TXT
+lUser2      = 0         pszUser2   = C:\WINDOWS\TEMP\~cpy392E.TMP
+lUser3      = 0         pszUser3   = 
+---------------------------------------------------------------
+IN ServiceCopy
+SOK: About To Send Buffer of length 11
+SOK: Send Buffer return length is 11
+SOK: About To Send File c:\bams\files\DBA\00000193\OUTPUT.TXT
+SOK: Send File return is 0
+SOK: About To Get Buffer
+SOK: Recv Buffer return is 128
+SOK: About To Send Buffer of length 11
+SOK: Send Buffer return length is 11
+DBA: COPY 00000193 - OUTPUT.TXT
+Thread 5 going ...
+initiating a connection ...
+Thread 1 going ...
+Waiting for a connection ...
+Thread m going ...
+Negotiating security ...
+SOK: About To Send Buffer of length 25
+SOK: Send Buffer return length is 25
+SOK: About To Get Buffer
+SOK: Recv Buffer return is 49
+SOK: About To Send Buffer of length 2
+SOK: Send Buffer return length is 2
+
+------------ COMMAND STRUCTURE  [08/07/95 09:20 am] ------------
+uCommand    = 12        pszUserID  = DBA
+uPriority   = 1         pszClientID= 204.146.114.8
+lMessagePort= 2000      pszServerID= 162.108.33.3
+                        pszJobID   = 00000001
+lUser1      = 4294967295 pszUser1   = 
+lUser2      = 0         pszUser2   = 
+lUser3      = 0         pszUser3   = 
+---------------------------------------------------------------
+IN Service

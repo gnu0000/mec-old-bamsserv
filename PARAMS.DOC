@@ -1,0 +1,64 @@
+
+   BAMSSERVER Parameters
+   ---------------------
+
+
+JOBPARMS PARAMETERS:
+
+Var Name       default value       Description
+-----------------------------------------------------------------------------
+TypRun                             'D' means run in debug mode
+PrintOut                           'Y' to print output files
+OutKeep                            'N' to delete job files
+Dest           DefaultPrinter      Printer name to print (may have ",server")
+Forms          DefaultPrintForms   Print forms
+Copies         "1"                 Copies to print
+ExecProg       DefaultJob          Job exe name to run
+ExecCfg        "JobName.CFG"       Job cfg name to use
+ExecCmd        ExecCmd             Cmd line to exec a job
+PrintServer    DefaultPrintServer  Printer server name to print to
+NotifyClient   NotifyClient        Sends status message to client when job completes
+Message0 (thru Message9)           Message to log (for debug)
+
+
+
+
+BAMSSERV.CFG PARAMETERS:
+
+                     default value
+Var Name             (in cfg file)     Description
+-----------------------------------------------------------------------------
+DefaultPrinter       lpt1              Default printer name
+DefaultPrintServer   jonpc             Default print server
+DefaultPrintForms    -blank-           Default print forms
+BannerFile           Banner.txt        Name of bammer file (prints first)
+DefaultJob           JobExec.cmd       Default job exe to run
+JobDir               .\Jobs            Path to job exe
+ExecCmd              (see cfg file)    Command line to use for job exec
+Debug                FALSE             Turns on Server debugging
+LogFile              .\BamsServ.log    Name of Server log
+WellKnownPort        2000              Connection port
+Restart              TRUE              Reloads queued jobs at startup
+PriorityBumpTime     3600              Time in seconds till priority bump
+MaxProcesses         5                 # processes running at 1 time
+MaxQueueSize         100               # jobs in queue
+FilesDir             .\Files           Dir for output files
+ServerPerformance    100               Return for PING command
+LogFileLevel         4                 Logging level to LogFile
+LogWindowLevel       3                 Logging level to log window
+ScreenLines          50                Screen mode to use
+SystemFilesDir       Sys               Dir for job sysfiles (relative)
+OutputFilesDir       -blank-           Dir for job outfiles (relative)
+TempDir              c:\tmp            Dir for temp files (spooler, ...)
+PrintWait            TRUE              Print in blocking mode?
+PrintCmd             (see cfg file)    Command line for print cmds
+KeepSpoolFile        FALSE             For debugging
+ServicePClass        4                 Priority class for connection port
+ServicePDelta        0                 Priority delta for connection port
+PClass               2                 Priority class for server threads
+PDelta               0                 Priority delta for server threads
+NotifyClient         TRUE              Sends status message to client when job completes
+Default_TimeOut      0                 Time until running job times out
+PESLPRJ_TimeOut ...  0                 Time until specific job times out
+PrintFileHeaders     TRUE              Identifies files in print spool
+

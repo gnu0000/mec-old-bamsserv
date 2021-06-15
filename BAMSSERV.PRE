@@ -1,0 +1,77 @@
+!IF "$(DEBUG)" == "TRUE"
+ODIR = 32DOBJ
+#COPT = /c /w3 /Ti /Tm /Sp1 /Ss /Gm /O- /Q /Fo$(ODIR)\$(@B).obj
+#COPT = /c /Wpro /w3 /Ti /Sp1 /Ss /Gm /O- /Q /D__DEBUG_ALLOC__ /Fo$(ODIR)\$(@B).obj
+COPT = /c /Wpro /w3 /Ti /Sp1 /Ss /Gm /O- /Q /D_MT /Fo$(ODIR)\$(@B).obj
+LOPT = /NOLOGO /NOE /NOD /DE
+LIBS =  os2386 DDE4MBS GnuLib3D osock
+!ELSE
+ODIR = 32OOBJ
+#COPT = /c /W3 /Sp1 /Ss /Gs /Gm /O+ /Q /Tl20 /Fo$(ODIR)\$(@B).obj
+COPT = /c /Wpro /w3 /Sp1 /Ss /Gs /Gm /O- /Q /Tl20 /D_MT /Fo$(ODIR)\$(@B).obj
+LOPT = /NOLOGO /NOE /NOD
+LIBS =  os2386 DDE4MBS GnuLib3O osock
+!ENDIF
+
+
+!IF "$(DEVELOP)" != "ibm"
+all: dummy
+dummy: 
+   echo type Develop IBM first!
+!ENDIF
+
+
+MAP  = $(PROG).MAP
+GRES = GnuRes
+PROG = BamsServ
+
+all : $(PROG).exe
+
+:FileList Files =
+   {
+   BAMSServ,  CtlFile,    JobQ,    
+   Var,       Service,    Stat,
+   UserIO,    Util,       RunJob,
+   Restart,   SokUtil1,   SokUtil2,
+   Security,  Banner,     Print
+   }
+
+:FileList BSFiles =
+   {
+   BS,      Respond,    SokUtil1
+   }
+
+
+:CmdList CmdLine = {"icc $(COPT) $(@B).c"}
+
+:CmdList MSCLine = {""}
+
+:Expand Files,CmdLine,$(ODIR)\,.obj,,.c,INCLUDES 
+
+:Expand BSFiles,CmdLine,$(ODIR)\,.obj,,.c,INCLUDES 
+
+
+
+$(PROG).exe : {F:Files,$(ODIR)\,.obj} $(PROG).def
+  link386 @<<$(@B).lnk
+  {L:Files,$(ODIR)\,,3} +
+  $(LOPT), $(@B), $(MAP),$(LIBS),$*.def
+<<nokeep
+  $(GRES) -a $(PROG).exe Bamsserv.cfs
+
+BS.exe : {F:BSFiles,$(ODIR)\,.obj} BS.def
+  link386 @<<$(@B).lnk
+  {L:BSFiles,$(ODIR)\,,3} +
+  $(LOPT), $(@B), $(MAP),$(LIBS),$*.def
+<<nokeep
+  $(GRES) -a BS.exe BS.cfs
+
+SetDB.obj: SetDB.c SetDB.def
+   icc $(COPT) $(@B).c
+
+SetDB.exe: SetDB.obj
+  link386 @<<$(@B).lnk
+  $(ODIR)\SetDB.obj +
+  $(LOPT), $(@B), $(MAP),$(LIBS),$*.def
+<<nokeep
+

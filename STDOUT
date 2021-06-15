@@ -1,0 +1,168 @@
+******************************************************************************
+*                                                                            *
+*                                 STATISTICS                                 *
+*                                                                            *
+******************************************************************************
+      Server Start Time: 04/24/95 02:02 pm
+           Current Time: 04/24/95 02:19 pm
+      Average Wait Time: 00h 00m 00s
+   Average Running Time: 00h 00m 00s
+      Total Jobs Queued: 0
+     Total Jobs Started: 0
+   Total Jobs Completed: 0
+     Total Jobs Printed: 0
+      Max Jobs in Queue: 0
+         Jobs Restarted: 0
+     Total Jobs Refused: 0
+Total Security Failures: 0
+    PING       Commands: 4
+    SUBMIT     Commands: 0
+    LISTJOBS   Commands: 0
+    LISTFILES  Commands: 0
+    PRINT      Commands: 0
+    COPY       Commands: 0
+    DELETEJOB  Commands: 0
+    DELETEFILE Commands: 0
+    ACCEPT     Commands: 0
+    PURGE      Commands: 0
+    SETDEFAULT Commands: 0
+    GETINFO    Commands: 5
+    TEST       Commands: 0
+    TEST2      Commands: 0
+******************************************************************************
+*                                                                            *
+*                                 VARIABLES                                  *
+*                                                                            *
+******************************************************************************
+MaxProcesses=6
+MaxQueueSize=200
+WellKnownPort=2000
+Debug=FALSE
+LogFile=D:\BAMSSERV\BamsServ.log
+Restart=TRUE
+SystemFilesDir=Sys
+OutputFilesDir=
+ExecCmd=cmd.exe /c @Job CLNTENV=@ParmFile SYSENV=@CfgFile >@StdOut 2>@StdErr
+PrintCmd=LPR -b -n -r3 -q10 -p@Printer -s@PrintServer @File
+LogFileLevel=7
+LogWindowLevel=7
+PrintWait=TRUE
+PriorityBumpTime=3600
+ServerPerformance=100
+NotifyClient=TRUE
+JobTimeout=0
+PrintFileHeaders=TRUE
+FixFormFeeds=TRUE
+DefaultJob=JobExec.cmd
+JobDir=D:\BAMSSERV\Jobs
+FilesDir=D:\BAMSSERV\Files
+TempDir=c:\tmp
+DefaultPrinter=lpt1
+DefaultPrintServer=jonpc
+ScreenLines=50,12,12
+BannerFile=Banner.txt
+ServicePClass=4
+ServicePDelta=0
+PClass=2
+PDelta=0
+AutoPurge=72
+lpt1_L_Codes=~E~&l1o58f6C
+lpt1_P_Codes=~E
+lpt1_D_Codes=~E
+lpt1_Reset=~E
+lpt2_L_Codes=~E~&l1o58f6C
+lpt2_P_Codes=~E
+lpt2_D_Codes=~E
+lpt2_Reset=~E
+Default_TimeOut=3600
+PESLPRJ_TimeOut=7200
+KeepSpoolFile=FALSE
+******************************************************************************
+*                                                                            *
+*                                QUEUED JOBS                                 *
+*                                                                            *
+******************************************************************************
+******************************************************************************
+*                                                                            *
+*                                RUNNING JOBS                                *
+*                                                                            *
+******************************************************************************
+******************************************************************************
+*                                                                            *
+*                                  COMMANDS                                  *
+*                                                                            *
+******************************************************************************
+02:02 pm FakeUser: PING from 204.146.114.8
+02:06 pm FakeUser: PING from 204.146.114.8
+02:08 pm FakeUser: PING from 204.146.114.8
+02:11 pm FakeUser: PING from 204.146.114.8
+02:11 pm FakeUser: GET INFO ffffffff
+02:12 pm FakeUser: GET INFO ffffffff
+02:12 pm FakeUser: GET INFO ffffffff
+02:17 pm FakeUser: GET INFO ffffffff
+02:17 pm FakeUser: GET INFO ffffffff
+******************************************************************************
+*                                                                            *
+*                                MESSAGE LOG                                 *
+*                                                                            *
+******************************************************************************
+lUser2      = 0         pszUser2   = 
+lUser3      = 0         pszUser3   = 
+---------------------------------------------
+IN Service
+SOK: About To Send Buffer of length 11
+SOK: Send Buffer return length is 11
+SOK: About To Send File D:\BAMSSERV\Files\FakeUser\Stats.dat
+SOK: Send File return is 0
+SOK: About To Get Buffer
+SOK: Recv Buffer return is 2
+SOK: About To Send Buffer of length 11
+SOK: Send Buffer return length is 11
+FakeUser: GET INFO ffffffff
+initiating a connection ...
+Waiting for a connection ...
+Negotiating security ...
+SOK: About To Send Buffer of length 25
+SOK: Send Buffer return length is 25
+SOK: About To Get Buffer
+SOK: Recv Buffer return is 49
+SOK: About To Send Buffer of length 2
+SOK: Send Buffer return length is 2
+------------- COMMAND STRUCTURE -------------
+uCommand    = 12        pszUserID  = FakeUser
+uPriority   = 1         pszClientID= 204.146.114.8
+lMessagePort= 2000      pszServerID= 204.146.114.8
+                        pszJobID   = 00000001
+lUser1      = 4294967295 pszUser1   = 
+lUser2      = 0         pszUser2   = 
+lUser3      = 0         pszUser3   = 
+---------------------------------------------
+IN Service
+SOK: About To Send Buffer of length 11
+SOK: Send Buffer return length is 11
+SOK: About To Send File D:\BAMSSERV\Files\FakeUser\Stats.dat
+SOK: Send File return is 0
+SOK: About To Get Buffer
+SOK: Recv Buffer return is 2
+SOK: About To Send Buffer of length 11
+SOK: Send Buffer return length is 11
+FakeUser: GET INFO ffffffff
+initiating a connection ...
+Waiting for a connection ...
+Negotiating security ...
+SOK: About To Send Buffer of length 25
+SOK: Send Buffer return length is 25
+SOK: About To Get Buffer
+SOK: Recv Buffer return is 49
+SOK: About To Send Buffer of length 2
+SOK: Send Buffer return length is 2
+------------- COMMAND STRUCTURE -------------
+uCommand    = 12        pszUserID  = BS
+uPriority   = 1         pszClientID= 204.146.114.8
+lMessagePort= 2000      pszServerID= 204.146.114.8
+                        pszJobID   = 00000001
+lUser1      = 7         pszUser1   = 
+lUser2      = 0         pszUser2   = 
+lUser3      = 0         pszUser3   = 
+---------------------------------------------
+IN Service

@@ -1,0 +1,5 @@
+@echo off
+set t=%1
+if "%t" == "" set t=%_month-%_day
+echo Zipping to JM%t
+pkzip -x*.exe -x*.obj -x*.err -x*.lib -x*.zip -x*.bak -x*.map -x*.bak -x*.o -P JM%t *.* Gnulib\*.*

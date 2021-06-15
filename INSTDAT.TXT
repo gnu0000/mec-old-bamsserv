@@ -1,0 +1,44 @@
+;
+; Install Text File
+;
+; This file contains text that is compiled into install.exe
+;
+;
+;
+[szUsage,,_DATA]
+INSTALL      BAMS Batch Server Installation Program  %s            %s
+
+USAGE: INSTALL [options]
+
+WHERE: [options] are 0 or more of:
+         /Help ...... This help.
+         /Lines=# ... Set screen lines.
+         /IO ........ Disable Fast I/O (for non-compatible systems).
+         /Debug ..... Enable debugging mode.
+;
+;
+;
+[szIntro,,_DATA]
+This installation program will install version %s of the BAMS JOB SERVER \
+onto your hard disk.  This software requires other software to function, \
+including a TCP/IP socket interface and Oracle client software.  See \
+installation instructions for further information.
+;
+;
+;
+[szExtro,,_DATA]
+Version %s of the BAMS JOB SERVER has been successfully installed.  You \
+must restart this machine before using this server.  User \
+customizable settings which may be modified can be found in two of the \
+configuration files that were installed.  The first is called BAMSSERV.CFG \
+and can be found in the %s directory.  This file contains options specific \
+to the job monitor program.  The other config file is called JOBEXEC.CFG \
+and is located in the %s directory.  This file contains job specific \
+parameters.
+;
+;
+;
+[szAbort,,_DATA]
+This software has not been completely installed.  You must re-run this \
+install program to complete the installation.  Refer to the installation \
+instructions for further information. 

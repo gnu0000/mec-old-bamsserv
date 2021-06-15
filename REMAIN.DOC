@@ -1,0 +1,92 @@
+
+ (SERVER) Job Server Remaining Tasks
+ -----------------------------------
+
+  ___ Code/test commands for bootstrapping.
+      [coding 90% done, needs test from client side]
+
+  ___ Code/test commands for new client functions job/file get, delete, kill,
+      purge etc.
+      [coding done, needs test from client side]
+
+  ___ Code/test commands for general purpose file get/put for templates, etc.
+      [coding 75%, needs test from client side]
+
+  ___ Move I/O directory location from Jobexec.cmd control to bamsserv.exe.
+      [needs code and test]
+
+  ___ Maintain/update install program. 
+      [needed for each delivery]
+
+  ___ Cleanup code, comments, etc...
+      [not done]
+
+  ___ Train second person to maintain bamsserv.exe code.
+      [not done]
+
+  ___ Encapsulate machine specific code for later ports.
+      [not done]
+
+  ___ Unforseen coding changes resulting from requested enhancements.
+ 
+  ___ General support through beta (In house and at MI).
+
+
+
+
+ (SERVER) Jobexec.cmd Remaining tasks
+ ------------------------------------
+
+  ___ Read I/O dir location from server rather than from config file.
+      [not done]
+
+  ___ Unknown coding changes required for CAS.
+      [not done, possibly not needed]
+
+
+
+
+  
+ (CLIENT) Job Monitor/GUI Remaining Tasks
+ ----------------------------------------
+
+  ___ Implement/test Job List window.
+      [coding __% done, needs test]
+
+  ___ Implement/test Job Delete/Kill.
+      [coding __% done, needs test]
+
+  ___ Implement/test Job-File List window.
+      [coding __% done, needs test]
+
+  ___ Implement/test File Copy.
+      [coding __% done, needs test]
+
+  ___ Implement/test File Delete.
+      [coding __% done, needs test]
+
+  ___ Implement/test File Print Remote.
+      [coding __% done, needs test]
+
+  ___ Implement/test File Print Local.
+      [coding __% done, needs test]
+
+  ___ General support through beta.
+
+
+
+
+
+ (CLIENT) BootStrap Remaining Tasks
+ ----------------------------------
+
+  ___ Implement/Test Client Bootstrap program.
+      [not done]
+   
+  ___ Modify Powerbuilder EXE's to support bootstrap (if needed).
+      [not done]
+
+  ___ Create Client install that uses Bootstrap procedure.
+      [not done]
+
+

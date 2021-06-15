@@ -1,0 +1,35 @@
+
+.SUFFIXES:
+.SUFFIXES: .c
+
+
+
+all: osock.lib cmd.lib
+
+osock.lib: osock.dll
+	d:\toolkt21\os2bin\implib.exe osock.lib osock.dll
+
+osock.dll: osock.obj
+	link386.exe osock /De /Align:16 /exepack /noi,osock.dll,NULL,os2386 so32dll.lib tcp32dll.lib,osock.def
+
+
+osock.obj:
+   ICC.EXE /Ti /Sm /Ss /Q /Gm /Gt /Ge- /Sp1 /C .\$*.c
+
+cmd.lib: cmd.dll
+	d:\toolkt21\os2bin\implib.exe cmd.lib cmd.dll
+
+cmd.dll: cmd.obj
+	link386.exe cmd /De /Align:16 /exepack /noi,cmd.dll,NULL,os2386 so32dll.lib tcp32dll.lib osock.lib,cmd.def
+
+
+cmd.obj:
+   ICC.EXE /Ti /Sm /Ss /Q /Gm /Gt /Ge- /Sp1 /C .\$*.c
+
+clean:
+	del osock.dll
+	del osock.obj
+	del osock.lib
+	del cmd.dll
+	del cmd.obj
+	del cmd.lib

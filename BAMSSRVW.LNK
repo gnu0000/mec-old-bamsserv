@@ -1,0 +1,10 @@
+system   os2v2
+option   map=bamssrvw
+option   stack=90000
+name     bamssrvw
+library  GnuLibWD, osock
+file WDOBJ\BAMSServ ,WDOBJ\CtlFile ,WDOBJ\JobQ 
+file WDOBJ\Var ,WDOBJ\Service ,WDOBJ\Stat 
+file WDOBJ\UserIO ,WDOBJ\Util ,WDOBJ\RunJob 
+file WDOBJ\Restart ,WDOBJ\SokUtil1 ,WDOBJ\SokUtil2 
+file WDOBJ\Security ,WDOBJ\Banner ,WDOBJ\Print 

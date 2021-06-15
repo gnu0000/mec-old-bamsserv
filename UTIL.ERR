@@ -1,0 +1,26 @@
+UTIL.C(14): Error! E1055: Unable to open 'os2.h'
+Util.h(164): Error! E1127: Type required in parameter list
+Util.h(164): Error! E1022: Missing or misspelled data type near 'UTIL.err'
+Util.h(167): Error! E1127: Type required in parameter list
+Util.h(167): Error! E1022: Missing or misspelled data type near 'UTIL.err'
+Util.h(183): Error! E1062: Inconsistent return type for function 'Rnd'
+UTIL.C(84): Warning! W101: Non-portable pointer conversion
+UTIL.C(84): Error! E1151: Parameter count does not agree with previous definition
+UTIL.C(153): Error! E1127: Type required in parameter list
+UTIL.C(153): Error! E1022: Missing or misspelled data type near 'UTIL.err'
+UTIL.C(156): Error! E1127: Type required in parameter list
+UTIL.C(156): Error! E1022: Missing or misspelled data type near 'UTIL.err'
+UTIL.C(158): Error! E1011: Symbol 'FILEFINDBUF3' has not been declared
+UTIL.C(158): Error! E1009: Expecting ';' but found 'UTIL.err'
+UTIL.C(158): Error! E1063: Missing operand
+UTIL.C(158): Warning! W111: Meaningless use of an expression
+UTIL.C(158): Error! E1011: Symbol 'pfbufTmp' has not been declared
+UTIL.C(158): Error! E1029: Expression must be 'pointer to ...'
+UTIL.C(158): Warning! W111: Meaningless use of an expression
+UTIL.C(159): Error! E1058: Cannot use typedef 'ULONG' as a variable
+UTIL.C(159): Error! E1009: Expecting ';' but found 'UTIL.err'
+UTIL.C(159): Error! E1063: Missing operand
+UTIL.C(161): Error! E1011: Symbol 'fbuf' has not been declared
+UTIL.C(161): Warning! W102: Type mismatch
+UTIL.C(167): Error! E1147: Too many errors: compilation aborted
+Error: Compiler returned a bad status compiling 'UTIL.C'

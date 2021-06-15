@@ -1,0 +1,50 @@
+DEBUG = TRUE
+!IF "$(DEBUG)" == "TRUE"
+ODIR = MSCDOBJ
+COPT = /c /W3 /AL /Od /Zip /Fo$(ODIR)\$(@B).obj /nologo
+LOPT = /CO/NOLOGO/NOD/NOE
+LIBS = os2 llibcep GnuLibD
+BIND = rem
+GRES = rem
+MAP  = nul
+!ELSE
+ODIR = MSCOOBJ
+COPT = /c /W3 /AL /Ox /Grs /Zp /Fo$(ODIR)\$(@B).obj /nologo
+LOPT = /E/F/PACKC/NOLOGO/NOD/NOE
+LIBS = os2 llibcep GnuLibO
+BIND = bind $*.exe
+GRES = GnuRes
+MAP  = nul
+!ENDIF
+
+PROG = Install
+
+all: $(PROG).exe
+
+:FileList CFiles = 
+   {
+   Install, eblib, readebl, var
+   }
+
+:FileList DFiles =
+   {
+   InstDat
+   }
+
+:CmdList CCmd = {"cl $(COPT) $(@B).c"}
+
+:CmdList DCmd = {"Data2Obj /Verbose $(@B).txt $(ODIR)\$(@B)"}
+
+:Expand CFiles,CCmd,$(ODIR)\,.obj,,.c,INCLUDES 
+
+:Expand DFiles,DCmd,$(ODIR)\,.obj,,.txt
+
+$(PROG).exe : {F: CFiles,$(ODIR)\,.obj} {F: DFiles,$(ODIR)\,.obj} $(PROG).def
+  link @<<$(PROG).lnk
+  {L: CFiles,$(ODIR)\,,3} +
+  {L: DFiles,$(ODIR)\,,3} +
+  $(LOPT), $(PROG), $(MAP), $(LIBS), $(PROG).def
+<<nokeep
+  $(GRES) -a -c $(PROG).EXE bamsserv.cfs
+  $(GRES) -a -c $(PROG).EXE JobExec.cfs
+

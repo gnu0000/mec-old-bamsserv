@@ -1,0 +1,84 @@
+CC     = wcc386
+LINKER = wlink
+PROG   = bamssrvw
+MAP    = $(PROG).MAP
+GRES   = GnuRes
+
+!IF "$(DEBUG)" == "TRUE"
+ODIR = WDOBJ
+COPT =-mf -bt=os2 -fp3 -4s -s -w3 -ze -4r -zp4 -zq -fo=$(ODIR)\$(@B).obj
+LIBS = GnuLibWD, osock
+!ELSE
+ODIR = WOOBJ
+COPT =-mf -bt=os2 -fp3 -4s -s -w3 -ze -omaxnet -4r -zp4 -zq -fo=$(ODIR)\$(@B).obj
+LIBS = GnuLibWO, osock
+!ENDIF
+
+
+!IF "$(DEVELOP)" != "WATCOM"
+all: dummy
+dummy: 
+   echo type Develop WATCOM first!
+!ENDIF
+
+
+
+all : $(PROG).exe
+
+:FileList Files =
+   {
+   BAMSServ,  CtlFile,    JobQ,    
+   Var,       Service,    Stat,
+   UserIO,    Util,       RunJob,
+   Restart,   SokUtil1,   SokUtil2,
+   Security,  Banner,     Print
+   }
+
+:FileList BSFiles =
+   {
+   BS,      Respond,    SokUtil1
+   }
+
+
+:CmdList CmdLine = {"$(CC) $(COPT) $(@B).c"}
+
+:Expand Files,CmdLine,$(ODIR)\,.obj,,.c,INCLUDES 
+
+:Expand BSFiles,CmdLine,$(ODIR)\,.obj,,.c,INCLUDES 
+
+
+
+$(PROG).exe : {F:Files,$(ODIR)\,.obj}
+	$(LINKER) @<<$(@B).lnk
+system   os2v2
+option   map=$(PROG)
+option   stack=90000
+name     $(PROG)
+library  $(LIBS)
+{X:Files,$(ODIR)\,,comma,file ,3}
+<<keep
+  $(GRES) -a $(PROG).exe Bamsserv.cfs
+
+BS.exe : {F:BSFiles,$(ODIR)\,.obj}
+	$(LINKER) @<<$(@B).lnk
+system   os2v2
+option   map=bsw
+option   stack=40000
+name     bsw
+{X:BSFiles,$(ODIR)\,,comma,file ,3}
+<<nokeep
+  $(GRES) -a BS.exe BS.cfs
+
+SetDB.obj: SetDB.c
+   $(CC) $(COPT) $(@B).c
+
+SetDB.exe: SetDB.obj
+	$(LINKER) @<<$(@B).lnk
+system   os2v2
+option   map=SetDBw
+option   stack=40000
+name     SetDBw
+{X:BSFiles,$(ODIR)\,,comma,file ,3}
+<<keep
+
+

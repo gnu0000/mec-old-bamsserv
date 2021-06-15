@@ -1,0 +1,25 @@
+DEBUG = FALSE
+
+!IF "$(DEBUG)" == "TRUE"
+COPT = /c /W3 /AL /Od /Zip /nologo
+LOPT = /CO/NOLOGO/NOD/NOE
+LIBS = os2 llibcep GnuLibD
+BIND = bind $*.exe
+!ELSE
+COPT = /c /W3 /AL /Ox /Grs /Zp /nologo
+LOPT = /E/F/PACKC/NOLOGO/NOD/NOE
+LIBS = os2 llibcep GnuLibO
+BIND = bind $*.exe
+!ENDIF
+
+PROG = SetDB
+
+all : $(PROG).exe
+
+$(PROG).obj : $(PROG).c
+  cl $(COPT) $*.c
+
+$(PROG).exe : $(PROG).obj
+  link $* $(LOPT),,NUL,$(LIBS),$*.def
+  $(BIND)
+

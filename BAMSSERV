@@ -1,0 +1,117 @@
+!IF "$(DEBUG)" == "TRUE"
+ODIR = 32DOBJ
+#COPT = /c /w3 /Ti /Tm /Sp1 /Ss /Gm /O- /Q /Fo$(ODIR)\$(@B).obj
+#COPT = /c /Wpro /w3 /Ti /Sp1 /Ss /Gm /O- /Q /D__DEBUG_ALLOC__ /Fo$(ODIR)\$(@B).obj
+COPT = /c /Wpro /w3 /Ti /Sp1 /Ss /Gm /O- /Q /D_MT /Fo$(ODIR)\$(@B).obj
+LOPT = /NOLOGO /NOE /NOD /DE
+LIBS =  os2386 DDE4MBS GnuLib3D osock
+!ELSE
+ODIR = 32OOBJ
+#COPT = /c /W3 /Sp1 /Ss /Gs /Gm /O+ /Q /Tl20 /Fo$(ODIR)\$(@B).obj
+COPT = /c /Wpro /w3 /Sp1 /Ss /Gs /Gm /O- /Q /Tl20 /D_MT /Fo$(ODIR)\$(@B).obj
+LOPT = /NOLOGO /NOE /NOD
+LIBS =  os2386 DDE4MBS GnuLib3O osock
+!ENDIF
+
+
+!IF "$(DEVELOP)" != "ibm"
+all: dummy
+dummy: 
+   echo type Develop IBM first!
+!ENDIF
+
+
+MAP  = $(PROG).MAP
+GRES = GnuRes
+PROG = BamsServ
+
+all : $(PROG).exe
+
+
+
+
+
+
+$(ODIR)\BAMSServ.obj : BAMSServ.c Var.h BamsServ.h Syssock.h osock.h Service.h JobQ.h UserIO.h Restart.h Util.h Stat.h 
+   icc $(COPT) $(@B).c
+
+$(ODIR)\CtlFile.obj : CtlFile.c Var.h BAMSServ.h Util.h CtlFile.h 
+   icc $(COPT) $(@B).c
+
+$(ODIR)\JobQ.obj : JobQ.c Var.h BamsServ.h UserIO.h Util.h RunJob.h JobQ.h Stat.h 
+   icc $(COPT) $(@B).c
+
+$(ODIR)\Var.obj : Var.c Var.h Bamsserv.h Util.h 
+   icc $(COPT) $(@B).c
+
+$(ODIR)\Service.obj : Service.c Var.h BamsServ.h CtlFile.h Syssock.h osock.h JobQ.h Util.h Service.h UserIO.h Security.h Sokutil.h Print.h Stat.h 
+   icc $(COPT) $(@B).c
+
+$(ODIR)\Stat.obj : Stat.c Var.h bamsserv.h util.h Stat.h 
+   icc $(COPT) $(@B).c
+
+$(ODIR)\UserIO.obj : UserIO.c Var.h Bamsserv.h JobQ.h UserIO.h Util.h Service.h 
+   icc $(COPT) $(@B).c
+
+$(ODIR)\Util.obj : Util.c Var.h Bamsserv.h UserIO.h Util.h 
+   icc $(COPT) $(@B).c
+
+$(ODIR)\RunJob.obj : RunJob.c Var.h BamsServ.h CtlFile.h Util.h RunJob.h Syssock.h osock.h SokUtil.h Banner.h Print.h Stat.h 
+   icc $(COPT) $(@B).c
+
+$(ODIR)\Restart.obj : Restart.c Var.h Bamsserv.h JobQ.h UserIO.h CtlFile.h Util.h Syssock.h osock.h Service.h Stat.h 
+   icc $(COPT) $(@B).c
+
+$(ODIR)\SokUtil1.obj : SokUtil1.c var.h bamsserv.h syssock.h osock.h 
+   icc $(COPT) $(@B).c
+
+$(ODIR)\SokUtil2.obj : SokUtil2.c var.h bamsserv.h syssock.h osock.h util.h 
+   icc $(COPT) $(@B).c
+
+$(ODIR)\Security.obj : Security.c Var.h BamsServ.h Syssock.h osock.h Util.h SokUtil.h 
+   icc $(COPT) $(@B).c
+
+$(ODIR)\Banner.obj : Banner.c Var.h Bamsserv.h Util.h 
+   icc $(COPT) $(@B).c
+
+$(ODIR)\Print.obj : Print.c Var.h Bamsserv.h UserIO.h Util.h Print.h Stat.h 
+   icc $(COPT) $(@B).c
+
+$(ODIR)\BS.obj : BS.c Var.h BamsServ.h Syssock.h osock.h Service.h SokUtil.h Respond.h 
+   icc $(COPT) $(@B).c
+
+$(ODIR)\Respond.obj : Respond.c 
+   icc $(COPT) $(@B).c
+
+$(ODIR)\SokUtil1.obj : SokUtil1.c var.h bamsserv.h syssock.h osock.h 
+   icc $(COPT) $(@B).c
+
+
+
+$(PROG).exe : $(ODIR)\BAMSServ.obj $(ODIR)\CtlFile.obj $(ODIR)\JobQ.obj $(ODIR)\Var.obj $(ODIR)\Service.obj $(ODIR)\Stat.obj $(ODIR)\UserIO.obj $(ODIR)\Util.obj $(ODIR)\RunJob.obj $(ODIR)\Restart.obj $(ODIR)\SokUtil1.obj $(ODIR)\SokUtil2.obj $(ODIR)\Security.obj $(ODIR)\Banner.obj $(ODIR)\Print.obj  $(PROG).def
+  link386 @<<$(@B).lnk
+  $(ODIR)\BAMSServ $(ODIR)\CtlFile $(ODIR)\JobQ +
+$(ODIR)\Var $(ODIR)\Service $(ODIR)\Stat +
+$(ODIR)\UserIO $(ODIR)\Util $(ODIR)\RunJob +
+$(ODIR)\Restart $(ODIR)\SokUtil1 $(ODIR)\SokUtil2 +
+$(ODIR)\Security $(ODIR)\Banner $(ODIR)\Print  +
+  $(LOPT), $(@B), $(MAP),$(LIBS),$*.def
+<<nokeep
+  $(GRES) -a $(PROG).exe Bamsserv.cfs
+
+BS.exe : $(ODIR)\BS.obj $(ODIR)\Respond.obj $(ODIR)\SokUtil1.obj  BS.def
+  link386 @<<$(@B).lnk
+  $(ODIR)\BS $(ODIR)\Respond $(ODIR)\SokUtil1  +
+  $(LOPT), $(@B), $(MAP),$(LIBS),$*.def
+<<nokeep
+  $(GRES) -a BS.exe BS.cfs
+
+SetDB.obj: SetDB.c SetDB.def
+   icc $(COPT) $(@B).c
+
+SetDB.exe: SetDB.obj
+  link386 @<<$(@B).lnk
+  $(ODIR)\SetDB.obj +
+  $(LOPT), $(@B), $(MAP),$(LIBS),$*.def
+<<nokeep
+

@@ -1,0 +1,49 @@
+;
+; BAMS Job Server Install Config File v0.6
+; ----------------------------------------
+;
+
+;
+; This first section creates directories that are not already
+; created by the install prog, and contain no files
+;
+null,         @TemplateDir\RTFTest ; create Template dir
+null,         @IODir\QBIDTAB       ; create io dir
+null,         @IODir\QCMD          ; create io dir
+null,         @IODir\QCMDPROD      ; create io dir
+null,         @IODir\QEBSFNAM      ; create io dir
+null,         @IODir\QEXPORT       ; create io dir
+null,         @IODir\QFUNDSEQ      ; create io dir
+null,         @IODir\QLDSSTRX      ; create io dir
+null,         @IODir\QPJIPORT      ; create io dir
+null,         @IODir\QPJXPORT      ; create io dir
+null,         @IODir\QBIDHSE       ; create io dir
+null,         @IODir\QBIDHSM       ; create io dir
+null,         @IODir\QXCRTDAT      ; create io dir
+null,         @IODir\QXCRTOLD      ; create io dir
+null,         @IODir\QXESTDAT      ; create io dir
+null,         @IODir\QXPRJDAT      ; create io dir
+null,         @IODir\QSITDAT       ; create io dir
+null,         @IODir\QSITOLD       ; create io dir
+
+
+;
+; This section creates directories, and unpacks libraries to them
+;
+;Bamsserv.ebl, @ServerDir           ;
+;Jobexec.ebl,  @JobDir              ;
+;RTFBase.ebl,  @TemplateDir\RTFBase ; create Template dir, install Base RTF
+;RTFProd.ebl,  @TemplateDir\RTFProd ; create Template dir, install Prod RTF
+;CfgBase.ebl,  @JobDir\CFGBase      ; create Job Cfg Dir, install Base CFG
+;CfgProd.ebl,  @JobDir\CFGProd      ; create Job Cfg Dir, install Prod CFG
+;JobExe1.ebl,  @JobDir\EXE          ; create Job exe dir, install Job Exe's
+;JobExe2.ebl,  @JobDir\EXE          ; install Job Exe's
+;JobExe3.ebl,  @JobDir\EXE          ; install Job Exe's
+;JobDLL1.ebl,  @JobDir\DLL          ; create Job dll dir, install Job DLL's
+;JobDLL2.ebl,  @JobDir\DLL          ; install Job DLL's
+;JobDLL3.ebl,  @JobDir\DLL          ; install Job DLL's
+;test.ebl,      c:\tmp
+;install\bamsserv.ebl, c:\tmp
+;a:\bamsserv.ebl, c:\tmp
+;a:\plidll.ebl, c:\tmp
+;end

@@ -1,0 +1,52 @@
+all : 
+   premake bamsserv.PRE bamsserv 
+   nmake -nologo -f bamsserv DEBUG=TRUE
+   nmake -nologo -f bamsserv DEBUG=TRUE bs.exe
+
+opt : 
+   premake bamsserv.PRE bamsserv 
+   nmake -nologo -f bamsserv DEBUG=FALSE
+   nmake -nologo -f bamsserv DEBUG=FALSE bs.exe
+
+debug: 
+   premake bamsserv.PRE bamsserv 
+   nmake -nologo -f bamsserv DEBUG=TRUE
+
+bs:
+   premake bamsserv.PRE bamsserv 
+   nmake -nologo -f bamsserv DEBUG=TRUE bs.exe
+
+setdbo:
+   premake bamsserv.PRE bamsserv 
+   nmake -nologo -f bamsserv DEBUG=FALSE setdb.exe
+
+install:
+   premake makeinst.PRE makeinst
+   nmake -nologo -f makeinst
+   
+setdb:
+   nmake -nologo -f makesdb
+   
+msc:
+   develop msc
+
+ibm:
+   develop ibm
+
+watcom:
+   develop watcom
+
+w :
+   premake bamssrvw.PRE bamssrvw
+   nmake -nologo -f bamssrvw DEBUG=TRUE
+   nmake -nologo -f bamssrvw DEBUG=TRUE bsw.exe
+
+wd :
+   premake bamssrvw.PRE bamssrvw
+   nmake -nologo -f bamssrvw DEBUG=TRUE
+   nmake -nologo -f bamssrvw DEBUG=TRUE bsw.exe
+
+wo :
+   premake bamssrvw.PRE bamssrvw
+   nmake -nologo -f bamssrvw DEBUG=FALSE
+   nmake -nologo -f bamssrvw DEBUG=FALSE bsw.exe
